@@ -1,9 +1,12 @@
+import * as fs                                                     from "fs";
 import {createRequire}                                             from "module";
 import {autoloadProfiles, computers, iwads, profiles, sourceports} from "./config.js";
+
 const require = createRequire(import.meta.url);
 
 const path = require("path");
-const execSync = require('child_process').execSync;
+const exec = require('child_process').exec;
+const replaceRegex = /\|>/g;
 
 //Select computer
 //Select profile
@@ -19,13 +22,18 @@ let profile;
 {
 	const computerMenu = [];
 
+	cls();
+
 	for(const i in computers)
 	{
 		const computer = computers[i];
 		computerMenu.push(computer.name);
 	}
 
-	await menu(computerMenu, computerSelection);
+	await menu(computerMenu, (val) =>
+	{
+		computer = computers[val];
+	});
 
 	const profileMenu = [];
 
@@ -35,19 +43,12 @@ let profile;
 		profileMenu.push(profile.name);
 	}
 
-	await menu(profileMenu, profileSelection);
+	await menu(profileMenu, (val) =>
+	{
+		profile = profiles[val];
+	});
 	doom();
 })();
-
-function computerSelection(computerNum)
-{
-	computer = computers[computerNum];
-}
-
-function profileSelection(profileNum)
-{
-	profile = profiles[profileNum];
-}
 
 function menu(arr, callback)
 {
@@ -61,10 +62,19 @@ function menu(arr, callback)
 
 		                   readline.question("Selection => ", (val) =>
 		                   {
+							   cls();
 			                   callback(val - 1);
 			                   resolve();
 		                   });
 	                   });
+}
+
+function cls()
+{
+	for( let i = 0; i < 100; i++ )
+	{
+		console.log("");
+	}
 }
 
 function doom()
@@ -77,47 +87,77 @@ function doom()
 	}
 
 	const sourceport = sourceports[profile.sourceport];
-	const autoloads = autoloadProfiles[profile.autoloadProfile].join(" ");
-	const iwad = iwads[profile.iwad];
-	let sourceportPath = sourceport.paths[computer.os];
-	const extraOptions = computer.extraOptions[profile.sourceport];
-	const pwads = profile.wads.join(" ");
+	let sourceportPath = sanitise(sourceport.paths[computer.os]);
 
 	if(!path.isAbsolute(sourceportPath))
 	{
 		sourceportPath = path.join(dir, sourceportPath);
 	}
 
+	if(!fs.existsSync(sourceportPath))
+	{
+		throw "Cannot find sourceport at '" + sourceportPath + "'";
+	}
+
 	let command = sourceportPath;
 
-	const replaceRegex = /></g;
+	const iwad = sanitise(iwads[profile.iwad]);
+	const extraOptions = sanitise(computer.extraOptions[profile.sourceport]);
+	const pwads = sanitise(profile.wads);
+	const profileOptions = sanitise(profile.options);
+	const sourceportOptions = sanitise(sourceport.options);
 
-	if( sourceport.options )
+	if(sourceportOptions)
 	{
-		command += " " + sourceport.options.replaceAll(replaceRegex,dir+path.sep);
+		command += " " + sourceportOptions;
 	}
 
 	command += " -iwad " + iwad;
 
 	let files = "";
-	const beforeOrAfter = profile.autoload;
 
-	if( !beforeOrAfter || beforeOrAfter.toLowerCase().includes("after") )
+	if(profile.autoloadProfile)
 	{
-		files = autoloads + " " + pwads;
+		const autoloadProfile = autoloadProfiles[profile.autoloadProfile];
+		const before = sanitise(autoloadProfile.before);
+		const after = sanitise(autoloadProfile.after);
+
+		files = before + " " + pwads + " " + after;
 	}
 	else
 	{
-		files = pwads + " " + autoloads;
+		files = pwads;
 	}
 
 	command += " -file " + files;
 
-	if( extraOptions )
+	if(extraOptions)
 	{
-		command += " " + extraOptions.replaceAll(replaceRegex,dir+path.sep);
+		command += " " + extraOptions;
+	}
+
+	if(profileOptions)
+	{
+		command += " " + profileOptions;
 	}
 
 	console.log(command);
-	execSync(command);
+
+	exec(command, {cwd: dir}, () =>
+	 {
+	 process.exit(0);
+	 });
+}
+
+function sanitise(str)
+{
+	if(!str)
+	{
+		return str;
+	}
+
+	str = str.replaceAll("/", path.sep);
+	str = str.replaceAll("\\", path.sep);
+
+	return str;
 }
