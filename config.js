@@ -562,7 +562,7 @@ profiles.push({
 
 computers.push({
 	               name        : "Desktop",
-	               dir         : "c:/users/candice/dropbox/savegames/doom",
+	               dir         : "c:/users/kixs_/dropbox/savegames/doom",
 	               extraOptions: {
 		               gzdoom: "+vid_maxfps 90 +vid_defwidth 3840 +vid_defheight 2160 +vid_adapter 1 +chp_size 2 +vk_hdr false -savedir saves"
 	               },
