@@ -564,7 +564,7 @@ computers.push({
 	               name        : "Desktop",
 	               dir         : "c:/users/kixs_/dropbox/savegames/doom",
 	               extraOptions: {
-		               gzdoom: "+vid_maxfps 90 +vid_defwidth 3840 +vid_defheight 2160 +vid_adapter 2 +chp_size 2 +vk_hdr false -savedir saves"
+		               gzdoom: "+vid_maxfps 90 +vid_defwidth 3840 +vid_preferbackend 1 +vid_defheight 2160 +vid_adapter 2 +chp_size 2 +vk_hdr false -savedir saves"
 	               },
 	               os          : "pc"
                });
@@ -580,17 +580,17 @@ computers.push({
 
 computers.push({
 	               name        : "Macbook",
-	               dir         : "/users/candice/dropbox/savegames/doom",
+	               dir         : "/Users/candice/Dropbox/SaveGames/doom",
 	               os          : "mac",
-	               extraOptions: {gzdoom: "-savedir saves"}
+	               extraOptions: {gzdoom: "+vid_preferbackend 0 +vid_maxfps 120 +vid_adapter 1 +chp_size 0 +vid_defwidth 2560 +vid_defheight 1600 -savedir saves"}
                });
 
 sourceports.gzdoom = {
 	paths  : {
 		pc : "gzdoom.exe",
-		mac: "gzdoom"
+		mac: "GZDoom.app/Contents/MacOS/gzdoom"
 	},
-	options: "-config gzdoom.ini +logfile gzdoom.log +vid_fullscreen true +vid_preferbackend 1 +sv_doubleammo true"
+	options: "-config gzdoom.ini +logfile gzdoom.log +vid_fullscreen true +sv_doubleammo true"
 };
 
 autoloadProfiles.pretty = {
