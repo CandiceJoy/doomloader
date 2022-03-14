@@ -71,10 +71,7 @@ function menu(arr, callback)
 
 function cls()
 {
-	for( let i = 0; i < 100; i++ )
-	{
-		console.log("");
-	}
+	console.clear();
 }
 
 function doom()
