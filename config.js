@@ -444,7 +444,7 @@ profiles.push({
 	              sourceport     : "gzdoom",
 	              iwad           : "doom2",
 	              wads           : "gd.wad xa-psych-b5b.pk3",
-	              autoloadProfile: "pretty"
+	              autoloadProfile: "prettyEarly"
               });
 profiles.push({
 	              name           : "Doom 2 + FinalDoomer",
@@ -557,6 +557,7 @@ profiles.push({
 	              sourceport     : "gzdoom",
 	              iwad           : "doom2",
 	              wads           : "ultdoom2-dv2.9.wad d2hs-lutz.wad Xim-StarWars-v2.8.9.pk3 Xim-StarWarsProps.pk3 Xim-StarWarsTextures.pk3 Xim-StarWarsMusic.pk3 Xim-BloodPatch.pk3 Xim-StarWars-DroidBarrels.pk3 Xim-StarWars-VaderMastermind.pk3 & SET autoload=lk_ucminimap.pk3 ",
+	              options        : "-loadgame saves/save34.zds",
 	              autoloadProfile: "pretty"
               });
 
@@ -598,6 +599,11 @@ autoloadProfiles.pretty = {
 	after : "skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Evilution_Override.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Plutonia_Experiment_Override.pk3 skins/DoomHDTextures.pk3 skins/LTP_V5.0.pk3"
 };
 
+autoloadProfiles.prettyEarly = {
+	before: "skins/NeuralUpscale2x_v0.95.pk3 skins/DHTP-2019_11_17.pk3 lights.pk3 skins/DoomMetalVol5.wad skins/pk_doom_sfx_20120224.wad skins/IDKFAv2.wad skins/HRRP.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Evilution_Override.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Plutonia_Experiment_Override.pk3 skins/DoomHDTextures.pk3 skins/LTP_V5.0.pk3",
+	after : ""
+};
+
 // -----===== End Editable =====-----
 
 export const iwads = {
@@ -611,3 +617,9 @@ export const iwads = {
 	strife  : "strife1.wad",
 	chex    : "chex.wad"
 };
+
+profiles.sort((a, b) =>
+              {
+	              console.log(JSON.stringify(a, null, "\t"));
+	              return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
+              });
