@@ -545,10 +545,10 @@ profiles.push({
 	              autoloadProfile: "pretty"
               });
 profiles.push({
-	              name           : "Ultimate Doom 2 / Hellscape + Trailblazer + Project Malice",
+	              name           : "Unfamiliar Ep 3 / Hellscape + Trailblazer + Project Malice",
 	              sourceport     : "gzdoom",
 	              iwad           : "doom2",
-	              wads           : "ProjectMalice5.pk3 ultdoom2-dv2.9.wad d2hs-lutz.wad Trailblazer.pk3",
+	              wads           : "ProjectMalice5.pk3 UF_EP3.pk3 Trailblazer.pk3",
 	              options        : "-loadgame saves/save31.zds",
 	              autoloadProfile: "pretty"
               });
@@ -556,10 +556,45 @@ profiles.push({
 	              name           : "Ultimate Doom 2 / Hellscape + Star Wars Doom",
 	              sourceport     : "gzdoom",
 	              iwad           : "doom2",
-	              wads           : "ultdoom2-dv2.9.wad d2hs-lutz.wad Xim-StarWars-v2.8.9.pk3 Xim-StarWarsProps.pk3 Xim-StarWarsTextures.pk3 Xim-StarWarsMusic.pk3 Xim-BloodPatch.pk3 Xim-StarWars-DroidBarrels.pk3 Xim-StarWars-VaderMastermind.pk3 & SET autoload=lk_ucminimap.pk3 ",
+	              wads           : "ultdoom2-dv2.9.wad d2hs-lutz.wad Xim-StarWars-v2.8.9.pk3 Xim-StarWarsProps.pk3 Xim-StarWarsTextures.pk3 Xim-StarWarsMusic.pk3 Xim-BloodPatch.pk3 Xim-StarWars-DroidBarrels.pk3 Xim-StarWars-VaderMastermind.pk3",
 	              options        : "-loadgame saves/save34.zds",
+	              autoloadProfile: "none"
+              });
+profiles.push({
+	              name           : "Unfamiliar Ep 3 + Vesper",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "UF_EP3.pk3 xa-vesper.wad",
 	              autoloadProfile: "pretty"
               });
+profiles.push({
+	              name           : "Elementalism",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "Elementalism_Phase1_RC2_v1.01.pk3",
+	              autoloadProfile: "noltp"
+              });
+profiles.push({
+	              name           : "Ashes 2063",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "Ashes2063Enriched2_2.pk3",
+	              autoloadProfile: "prettyEarly"
+              })
+profiles.push({
+	              name           : "Auger Zenith",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "DBP37_AUGZEN.wad",
+	              autoloadProfile: "prettyEarly"
+              });
+profiles.push({
+				  name: "Sunlust + Swwmgz",
+				  sourceport: "gzdoom",
+				  iwad: "doom2",
+				  wads: "sunlust.wad swwmgz_m.pk3",
+				  autoloadProfile: "pretty"
+});
 
 computers.push({
 	               name        : "Desktop",
@@ -583,7 +618,7 @@ computers.push({
 	               name        : "Macbook",
 	               dir         : "/Users/candice/Dropbox/SaveGames/doom",
 	               os          : "mac",
-	               extraOptions: {gzdoom: "+vid_preferbackend 0 +vid_maxfps 120 +vid_adapter 1 +chp_size 0 +vid_defwidth 2560 +vid_defheight 1600 -savedir saves"}
+	               extraOptions: {gzdoom: "+vid_preferbackend 0 +vid_maxfps 120 +vid_adapter 1 +chp_size 0 +vid_defwidth 3021 +vid_defheight 1964 -savedir saves"}
                });
 
 sourceports.gzdoom = {
@@ -604,6 +639,11 @@ autoloadProfiles.prettyEarly = {
 	after : ""
 };
 
+autoloadProfiles.noltp = {
+	before: "skins/NeuralUpscale2x_v0.95.pk3 skins/DHTP-2019_11_17.pk3 lights.pk3 skins/DoomMetalVol5.wad skins/pk_doom_sfx_20120224.wad skins/IDKFAv2.wad skins/HRRP.pk3",
+	after : "skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Evilution_Override.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Plutonia_Experiment_Override.pk3 skins/DoomHDTextures.pk3"
+};
+
 // -----===== End Editable =====-----
 
 export const iwads = {
@@ -618,8 +658,8 @@ export const iwads = {
 	chex    : "chex.wad"
 };
 
-profiles.sort((a, b) =>
+/*profiles.sort((a, b) =>
               {
 	              console.log(JSON.stringify(a, null, "\t"));
 	              return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
-              });
+              });*/
