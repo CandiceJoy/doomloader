@@ -521,7 +521,7 @@ profiles.push({
 	              sourceport     : "gzdoom",
 	              iwad           : "doom2",
 	              wads           : "bullet-eye-v0.11.6.zip",
-	              autoloadProfile: "pretty"
+	              autoloadProfile: "prettyEarly"
               });
 profiles.push({
 	              name           : "Ancient Aliens + IR",
@@ -630,17 +630,17 @@ sourceports.gzdoom = {
 };
 
 autoloadProfiles.pretty = {
-	before: "skins/NeuralUpscale2x_v0.95.pk3 skins/DHTP-2019_11_17.pk3 lights.pk3 skins/DoomMetalVol5.wad skins/pk_doom_sfx_20120224.wad skins/IDKFAv2.wad skins/HRRP.pk3",
+	before: "skins/NeuralUpscale2x_v0.95.pk3 skins/DHTP-2019_11_17.pk3 lights.pk3 brightmaps.pk3 skins/DoomMetalVol5.wad skins/pk_doom_sfx_20120224.wad skins/IDKFAv2.wad skins/HRRP.pk3",
 	after : "skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Evilution_Override.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Plutonia_Experiment_Override.pk3 skins/DoomHDTextures.pk3 skins/LTP_V5.0.pk3"
 };
 
 autoloadProfiles.prettyEarly = {
-	before: "skins/NeuralUpscale2x_v0.95.pk3 skins/DHTP-2019_11_17.pk3 lights.pk3 skins/DoomMetalVol5.wad skins/pk_doom_sfx_20120224.wad skins/IDKFAv2.wad skins/HRRP.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Evilution_Override.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Plutonia_Experiment_Override.pk3 skins/DoomHDTextures.pk3 skins/LTP_V5.0.pk3",
+	before: "skins/NeuralUpscale2x_v0.95.pk3 skins/DHTP-2019_11_17.pk3 lights.pk3 brightmaps.pk3 skins/DoomMetalVol5.wad skins/pk_doom_sfx_20120224.wad skins/IDKFAv2.wad skins/HRRP.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Evilution_Override.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Plutonia_Experiment_Override.pk3 skins/DoomHDTextures.pk3 skins/LTP_V5.0.pk3",
 	after : ""
 };
 
 autoloadProfiles.noltp = {
-	before: "skins/NeuralUpscale2x_v0.95.pk3 skins/DHTP-2019_11_17.pk3 lights.pk3 skins/DoomMetalVol5.wad skins/pk_doom_sfx_20120224.wad skins/IDKFAv2.wad skins/HRRP.pk3",
+	before: "skins/NeuralUpscale2x_v0.95.pk3 skins/DHTP-2019_11_17.pk3 lights.pk3 brightmaps.pk3 skins/DoomMetalVol5.wad skins/pk_doom_sfx_20120224.wad skins/IDKFAv2.wad skins/HRRP.pk3",
 	after : "skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Evilution_Override.pk3 skins/HOOVER1979_UltraHD_Texture_Pack_22052020_Plutonia_Experiment_Override.pk3 skins/DoomHDTextures.pk3"
 };
 
