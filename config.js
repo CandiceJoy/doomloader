@@ -580,7 +580,7 @@ profiles.push({
 	              iwad           : "doom2",
 	              wads           : "Ashes2063Enriched2_2.pk3",
 	              autoloadProfile: "prettyEarly"
-              })
+              });
 profiles.push({
 	              name           : "Auger Zenith",
 	              sourceport     : "gzdoom",
@@ -589,16 +589,40 @@ profiles.push({
 	              autoloadProfile: "prettyEarly"
               });
 profiles.push({
-				  name: "Sunlust + Swwmgz",
-				  sourceport: "gzdoom",
-				  iwad: "doom2",
-				  wads: "sunlust.wad swwmgz_m.pk3",
-				  autoloadProfile: "pretty"
-});
-profiles.push({name:"Scythe / Brutality + Malice",sourceport:"gzdoom",iwad:"doom2",wads:"Project_Brutality-master.zip scythe.wad ProjectMalice5.pk3",autoloadProfile:"pretty"});
-profiles.push({name:"Space Cat Saga Episode 1",sourceport:"gzdoom",iwad:"doom2",wads:"SCS1/Addon/nashgore.pk3 SCS1/SCS1.wad",autoloadProfile:"prettyEarly"});
-profiles.push({name:"Space Cat Saga Episode 2",sourceport:"gzdoom",iwad:"doom2",wads:"SCS2/nashgore.pk3 SCS2/SCS2.wad",autoloadProfile:"prettyEarly"});
-profiles.push({name:"FinalDoomer (Ancient Aliens)",sourceport:"gzdoom",iwad:"doom2",wads:"aaliens.wad finalDoomer_v3.4.pk3",autoloadProfile:"prettyEarly"});
+	              name           : "Sunlust + Swwmgz",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "sunlust.wad swwmgz_m.pk3",
+	              autoloadProfile: "pretty"
+              });
+profiles.push({
+	              name           : "Scythe / Brutality + Malice",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "Project_Brutality-master.zip scythe.wad ProjectMalice5.pk3",
+	              autoloadProfile: "pretty"
+              });
+profiles.push({
+	              name           : "Space Cat Saga Episode 1",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "SCS1/Addon/nashgore.pk3 SCS1/SCS1.wad",
+	              autoloadProfile: "prettyEarly"
+              });
+profiles.push({
+	              name           : "Space Cat Saga Episode 2",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "SCS2/nashgore.pk3 SCS2/SCS2.wad",
+	              autoloadProfile: "prettyEarly"
+              });
+profiles.push({
+	              name           : "FinalDoomer (Ancient Aliens)",
+	              sourceport     : "gzdoom",
+	              iwad           : "doom2",
+	              wads           : "aaliens.wad finalDoomer_v3.4.pk3",
+	              autoloadProfile: "prettyEarly"
+              });
 
 computers.push({
 	               name        : "Desktop",
@@ -663,7 +687,7 @@ export const iwads = {
 };
 
 /*profiles.sort((a, b) =>
-              {
-	              //console.log(JSON.stringify(a, null, "\t"));
-	              return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
-              });*/
+ {
+ //console.log(JSON.stringify(a, null, "\t"));
+ return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
+ });*/
